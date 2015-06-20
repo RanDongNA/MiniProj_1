@@ -1,15 +1,17 @@
 []zip
 []age
+
 []year
 []make
 []model
-[]bodytype
-[]primaryuse
-[]boolean onworlease
-[]boolean haspassivealarm
-[]maritalstatus
+[]bodyYype
+[]primaryUse
+[]boolean isLease
+[]boolean hasPassiveAlarm
+
+[]maritalStatus
 []education
-[]employmentstatus
-[]yearslicensed
-[]boolean accidentsclaimsdamage
-[]boolean ticketsorviolations
+[]employmentStatus
+[]yearsLicensed
+[]boolean hasAccidentsClaimsDamage
+[]boolean hasTicketsViolations

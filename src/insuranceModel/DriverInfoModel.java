@@ -13,7 +13,7 @@ public class DriverInfoModel {
 	// true means there exist a/c/d, false means none
 	private Boolean hasAccidentsClaimsDamage;
 	// true means got ticket/violation, false means not
-	private Boolean hasTicketsorCiolations;
+	private Boolean hasTicketsViolations;
 	/**
 	 * @return the gender
 	 */
@@ -71,8 +71,8 @@ public class DriverInfoModel {
 	/**
 	 * @return the hasTicketsorCiolations
 	 */
-	public Boolean getHasTicketsorCiolations() {
-		return hasTicketsorCiolations;
+	public Boolean getHasTicketsViolations() {
+		return hasTicketsViolations;
 	}
 	/**
 	 * @param gender the gender to set
@@ -131,8 +131,8 @@ public class DriverInfoModel {
 	/**
 	 * @param hasTicketsorCiolations the hasTicketsorCiolations to set
 	 */
-	public void setHasTicketsorCiolations(Boolean hasTicketsorCiolations) {
-		this.hasTicketsorCiolations = hasTicketsorCiolations;
+	public void setHasTicketsViolations(Boolean hasTicketsCiolations) {
+		this.hasTicketsViolations = hasTicketsCiolations;
 	}
 	
 	

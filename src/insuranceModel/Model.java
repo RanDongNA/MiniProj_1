@@ -1,51 +1,41 @@
 package insuranceModel;
 
 public class Model {
-	private BasicInfoModel bim;
-	private VehicleInfoModel vim;
-	private DriverInfoModel dim;
+	private BasicInfoModel basicInfoModel;
+	private VehicleInfoModel vehicleInfoModel;
+	private DriverInfoModel driverInfoModel;
 	
-	Model(BasicInfoModel aBim,VehicleInfoModel aVim,DriverInfoModel aDim) {
-		this.bim=aBim;
-		this.vim=aVim;
-		this.dim=aDim;
+	// a no arg constructor
+	public Model() {
+		this.basicInfoModel=new BasicInfoModel();
+		this.vehicleInfoModel=new VehicleInfoModel();
+		this.driverInfoModel=new DriverInfoModel();
 	}
-	
-	/**
-	 * @return the bim
-	 */
-	public BasicInfoModel getBim() {
-		return bim;
+	public Model(BasicInfoModel basicInfoModel,VehicleInfoModel vehicleInfoModel,DriverInfoModel driverInfoModel) {
+		this.basicInfoModel=basicInfoModel;
+		this.vehicleInfoModel=vehicleInfoModel;
+		this.driverInfoModel=driverInfoModel;
 	}
+
 	/**
-	 * @return the vim
+	 * @return the basicInfoModel
 	 */
-	public VehicleInfoModel getVim() {
-		return vim;
+	public BasicInfoModel getBasicInfoModel() {
+		return basicInfoModel;
 	}
+
 	/**
-	 * @return the dim
+	 * @return the vehicleInfoModel
 	 */
-	public DriverInfoModel getDim() {
-		return dim;
+	public VehicleInfoModel getVehicleInfoModel() {
+		return vehicleInfoModel;
 	}
+
 	/**
-	 * @param bim the bim to set
+	 * @return the driverInfoModel
 	 */
-	public void setBim(BasicInfoModel bim) {
-		this.bim = bim;
-	}
-	/**
-	 * @param vim the vim to set
-	 */
-	public void setVim(VehicleInfoModel vim) {
-		this.vim = vim;
-	}
-	/**
-	 * @param dim the dim to set
-	 */
-	public void setDim(DriverInfoModel dim) {
-		this.dim = dim;
+	public DriverInfoModel getDriverInfoModel() {
+		return driverInfoModel;
 	}
 	
 	
