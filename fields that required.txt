@@ -1,0 +1,15 @@
+[]zip
+[]age
+[]year
+[]make
+[]model
+[]bodytype
+[]primaryuse
+[]boolean onworlease
+[]boolean haspassivealarm
+[]maritalstatus
+[]education
+[]employmentstatus
+[]yearslicensed
+[]boolean accidentsclaimsdamage
+[]boolean ticketsorviolations
