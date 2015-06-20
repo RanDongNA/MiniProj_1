@@ -42,7 +42,7 @@ public class Model {
 	private Boolean hasTicketsorCiolations;
 	
 	
-	// this main() method is only for unit test
+	// TEST FOR WORKSPACE
 	// this main() method is only for unit test
 	// say twice because it is import
 	public static void main(String[] args) {
