@@ -79,7 +79,7 @@ public class Drivers extends JFrame implements ActionListener{
 		c.gridy = 1;
 		backGround.add(maritalL, c);
 		
-		String[] maritalList = new String[]{"Married", "Single Loser"};
+		String[] maritalList = new String[]{"  Married", "  Single Loser"};
 		marital = new JComboBox<String>(maritalList);
 		c.gridx = 1;
 		c.gridy = 1;
@@ -91,7 +91,7 @@ public class Drivers extends JFrame implements ActionListener{
 		c.gridy = 2;
 		backGround.add(educationL, c);
 		
-		String[] educationList = new String[]{"Come on, seriously?!", "High School", "Bachelor", "Master", "PHD"};
+		String[] educationList = new String[]{"  Come on, seriously?!", "  High School", "  Bachelor", "  Master", "  PHD"};
 		education = new JComboBox<String>(educationList);
 		c.gridx = 1;
 		c.gridy = 2;
@@ -102,7 +102,7 @@ public class Drivers extends JFrame implements ActionListener{
 		c.gridy = 3;
 		backGround.add(employmentL, c);
 		
-		String[] employmentList = new String[]{"Employed", "Loser"};
+		String[] employmentList = new String[]{"  Employed", "  Loser"};
 		employment = new JComboBox<String>(employmentList);
 		c.gridx = 1;
 		c.gridy = 3;
