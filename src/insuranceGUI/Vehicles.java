@@ -30,8 +30,8 @@ public class Vehicles extends JFrame implements ActionListener{
 	private JRadioButton lease;
 	private JRadioButton alarmYes;
 	private JRadioButton alarmNo;
-	JButton button1;
-	Color color = new Color(170, 202, 255);
+	private JButton button1;
+	private Color color = new Color(170, 202, 255);
 	
 	public Vehicles(){
 		vehicleInfo();

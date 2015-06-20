@@ -5,22 +5,24 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 
-public class Drivers extends JFrame{
+public class Drivers extends JFrame implements ActionListener{
 
 	private JPanel backGround;
 	private JLabel gender;
 	private JRadioButton male;
 	private JRadioButton female;
 	private JLabel maritalL;
-	private JTextField marital;
+	private JComboBox<String> marital;
 	private JLabel educationL;
 	private JComboBox<String> education;
 	private JLabel employmentL;
-	private JTextField employment;
+	private JComboBox<String> employment;
 	private JLabel ssnL;
 	private JTextField ssn;
 	private JLabel primaryResidenceL;
@@ -35,8 +37,8 @@ public class Drivers extends JFrame{
 	private JLabel ticket;
 	private JRadioButton ticketY;
 	private JRadioButton ticketN;
-	JButton button1;
-	Color color = new Color(170, 202, 255);
+	private JButton button1;
+	private Color color = new Color(170, 202, 255);
 	
 	public Drivers(){
 		DriverInfo();
@@ -77,7 +79,8 @@ public class Drivers extends JFrame{
 		c.gridy = 1;
 		backGround.add(maritalL, c);
 		
-		marital = new JTextField();
+		String[] maritalList = new String[]{"  Married", "  Single Loser"};
+		marital = new JComboBox<String>(maritalList);
 		c.gridx = 1;
 		c.gridy = 1;
 		c.gridwidth = 2;
@@ -88,7 +91,7 @@ public class Drivers extends JFrame{
 		c.gridy = 2;
 		backGround.add(educationL, c);
 		
-		String[] educationList = new String[]{"Come on, seriously?!", "High School", "Bachelor", "Master", "PHD"};
+		String[] educationList = new String[]{"  Come on, seriously?!", "  High School", "  Bachelor", "  Master", "  PHD"};
 		education = new JComboBox<String>(educationList);
 		c.gridx = 1;
 		c.gridy = 2;
@@ -99,7 +102,8 @@ public class Drivers extends JFrame{
 		c.gridy = 3;
 		backGround.add(employmentL, c);
 		
-		employment = new JTextField();
+		String[] employmentList = new String[]{"  Employed", "  Loser"};
+		employment = new JComboBox<String>(employmentList);
 		c.gridx = 1;
 		c.gridy = 3;
 		backGround.add(employment, c);
@@ -189,10 +193,8 @@ public class Drivers extends JFrame{
 		
 		fontSetJL(gender);
 		fontSetJL(maritalL);
-		fontSetJT(marital);
 		fontSetJL(educationL);
 		fontSetJL(employmentL);
-		fontSetJT(employment);
 		fontSetJL(ssnL);
 		fontSetJT(ssn);
 		fontSetJL(primaryResidenceL);
@@ -205,6 +207,8 @@ public class Drivers extends JFrame{
 		fontSetJL(ticket);
 		
 		education.setFont(new Font("Arial", Font.BOLD, 20));
+		marital.setFont(new Font("Arial", Font.BOLD, 20));
+		employment.setFont(new Font("Arial", Font.BOLD, 20));
 		male.setBackground(color);
 		male.setFont(new Font("Arial", Font.BOLD, 20));
 		female.setBackground(color);
@@ -219,10 +223,16 @@ public class Drivers extends JFrame{
 		ticketN.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setHorizontalAlignment(JLabel.CENTER);
+		button1.addActionListener(this);
 		
 		add(backGround);
 		setSize(1000, 800);
 		setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e){
+		setVisible(false);
+		new Result();
 	}
 	
 	public void fontSetJT(JTextField jt) {

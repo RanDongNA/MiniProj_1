@@ -15,6 +15,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 	private JTextField suffix;
 	private JTextField mailing;
 	private JTextField apt;
+	private JComboBox<String> state;
 	private JTextField city;
 	private JTextField postCode;
 	private JCheckBox sMailing;
@@ -83,18 +84,26 @@ public class BasicInfo extends JFrame implements ActionListener{
 		c.weightx = 0.3;
 		c.gridx = 3;
 		c.gridy = 1;
+		c.gridwidth = 1;
 		backGround.add(apt, c);
+		
+		String[] stateList = new String[]{"  AL", "  AK", "  AZ", "  AR", "  CA", "  CO", "  CT", "  DE", "  FL", "  GA", "  HI", "  ID", "  IL", "  IN", "  IA", "  KS", "  KY", "  LA", "  ME", "  MD", "  MA", "  MI", "  MN", "  MS", "  MO", "  MT", "  NE", "  NV", "  NH", "  NJ", "  NM", "  NY", "  NC", "  ND", "  OH", "  OK", "  OR", "  PA", "  RI", "  SC", "  SD", "  TN", "  TX", "  UT", "  VT", "  VA", "  WA", "  WV", "  WI", "  WY"};
+		state = new JComboBox<String>(stateList);
+		c.insets = new Insets(40,20,0,0);
+		c.gridx = 0;
+		c.gridy = 2;
+		backGround.add(state, c);
 		
 		city = new JTextField("City");
 		c.insets = new Insets(40,20,0,0);
-		c.gridx = 0;
+		c.gridx = 1;
 		c.gridy = 2;
 		c.gridwidth = 2;
 		backGround.add(city, c);
 		
 		postCode = new JTextField("XXXXX");
 		c.insets = new Insets(40,20,0,20);
-		c.gridx = 2;
+		c.gridx = 3;
 		c.gridy = 2;
 		backGround.add(postCode, c);
 		
@@ -152,6 +161,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 		fontSetJT(mm);
 		fontSetJT(dd);
 		fontSetJT(yyyy);
+		state.setFont(new Font("Arial", Font.BOLD, 20));
 		birth.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setHorizontalAlignment(JLabel.CENTER);
