@@ -41,9 +41,10 @@ public class Model {
 	// true means got ticket/violation, false means not
 	private Boolean hasTicketsorCiolations;
 	
-
-
-
+	
+	// this main() method is only for unit test
+	// this main() method is only for unit test
+	// say twice because it is import
 	public static void main(String[] args) {
 		// for test of this class
 		Model model = new Model();
@@ -52,7 +53,6 @@ public class Model {
 		model.setMiddleName("Liang");
 		model.setIsPOBox(true);
 		System.out.println(model.toString());
-
 	}
 	
 	public String toString() {
