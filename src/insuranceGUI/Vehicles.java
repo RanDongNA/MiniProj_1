@@ -1,5 +1,6 @@
 package insuranceGUI;
 
+import insuranceController.Controller;
 import insuranceModel.DriverInfoModel;
 import insuranceModel.VehicleInfoModel;
 
@@ -37,9 +38,11 @@ public class Vehicles extends JFrame implements ActionListener{
 	private ButtonGroup bp1;
 	private ButtonGroup bp2;
 	private Color color = new Color(170, 202, 255);
+	private Controller controller;
 	
-	public Vehicles(){
+	public Vehicles(Controller controller){
 		vehicleInfo();
+		this.controller=controller;
 	}
 	
 	public void vehicleInfo(){
@@ -178,15 +181,17 @@ public class Vehicles extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		setVisible(false);
-		new Drivers();
-		VehicleInfoModel vif = new VehicleInfoModel();
-		vif.setBodyType(bodyType.getText());
-		vif.setHasPassiveAlarm(bp2.getSelection().isSelected());
-		vif.setIsLease(bp1.getSelection().isSelected());
-		vif.setMake(make.getText());
-		vif.setModel(model.getSelectedText());
-		vif.setPrimaryUse(primaryUse.getSelectedText());
-		vif.setYear(Integer.parseInt(year.getText()));
+		new Drivers(controller);
+		controller.saveVehicalInfo(Integer.parseInt(year.getText()), make.getText(), model.getSelectedText(), bodyType.getText(),primaryUse.getSelectedText(),bp1.getSelection().isSelected(), bp2.getSelection().isSelected());
+		
+//		VehicleInfoModel vif = new VehicleInfoModel();
+//		vif.setBodyType();
+//		vif.setHasPassiveAlarm();
+//		vif.setIsLease();
+//		vif.setMake();
+//		vif.setModel();
+//		vif.setPrimaryUse();
+//		vif.setYear();
 	}
 	
 	public void fontSetJT(JTextField jt) {

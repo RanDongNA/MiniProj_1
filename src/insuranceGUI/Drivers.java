@@ -1,5 +1,6 @@
 package insuranceGUI;
 
+import insuranceController.Controller;
 import insuranceModel.DriverInfoModel;
 import insuranceModel.MyValidationException;
 
@@ -45,9 +46,11 @@ public class Drivers extends JFrame implements ActionListener{
 	private ButtonGroup bp1;
 	private ButtonGroup bp2;
 	private ButtonGroup bp3;
+	private Controller controller;
 	
-	public Drivers(){
+	public Drivers(Controller controller){
 		DriverInfo();
+		this.controller = controller;
 	}
 	
 	public void DriverInfo(){
@@ -238,44 +241,10 @@ public class Drivers extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e){
 		setVisible(false);
-		new Result();
-		DriverInfoModel dif = new DriverInfoModel();
-		try {
-			dif.setEducation((String)education.getSelectedItem());
-		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		//dif.setEmploymentStatus(employment.getSelectedItem()); Better be Radio Button.
-		try {
-			dif.setGender(gender.getText());
-		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		dif.setHasAccidentsClaimsDamage(bp2.getSelection().isSelected());
-		dif.setHasTicketsViolations(bp3.getSelection().isSelected());
-		try {
-			dif.setMaritalStatus((String)marital.getSelectedItem());
-		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			dif.setPrimaryResidence(primaryResidence.getSelectedText());
-		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			dif.setSsn(ssn.getText());
-		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		dif.setUsLicenseStatus(license.getText());
-		try {
-			dif.setYearsLicensed(Integer.parseInt(year.getText()));
+		new Result(controller);
+		
+	    try {
+			controller.saveDriverInfo((String)marital.getSelectedItem(), (String)education.getSelectedItem(), true, Integer.parseInt(year.getText()), bp2.getSelection().isSelected(), bp3.getSelection().isSelected());
 		} catch (NumberFormatException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -283,6 +252,51 @@ public class Drivers extends JFrame implements ActionListener{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+//		DriverInfoModel dif = new DriverInfoModel();
+//		try {
+//			dif.setEducation((String)education.getSelectedItem());
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		//dif.setEmploymentStatus(employment.getSelectedItem()); Better be Radio Button.
+//		try {
+//			dif.setGender(gender.getText());
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		dif.setHasAccidentsClaimsDamage(bp2.getSelection().isSelected());
+//		dif.setHasTicketsViolations(bp3.getSelection().isSelected());
+//		try {
+//			dif.setMaritalStatus((String)marital.getSelectedItem());
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		try {
+//			dif.setPrimaryResidence(primaryResidence.getSelectedText());
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		try {
+//			dif.setSsn(ssn.getText());
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		dif.setUsLicenseStatus(license.getText());
+//		try {
+//			dif.setYearsLicensed(Integer.parseInt(year.getText()));
+//		} catch (NumberFormatException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 	}
 	
 	public void fontSetJT(JTextField jt) {

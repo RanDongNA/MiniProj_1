@@ -10,7 +10,7 @@ public class Controller {
 	
 	public Model model;
 	
-	Controller() {
+	public Controller() {
 		model = new Model();
 	}
 	

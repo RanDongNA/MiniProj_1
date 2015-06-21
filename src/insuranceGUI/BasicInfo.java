@@ -1,5 +1,6 @@
 package insuranceGUI;
 
+import insuranceController.Controller;
 import insuranceModel.BasicInfoModel;
 import insuranceModel.MyValidationException;
 
@@ -26,9 +27,11 @@ public class BasicInfo extends JFrame implements ActionListener{
 	private JTextField mm;
 	private JButton button1;
 	private Color color = new Color(170, 202, 255);
+	private Controller controller;
 	
 	public BasicInfo() {
 		basic();
+	    controller = new Controller();
 	}
 	
 	public void basic() {
@@ -175,18 +178,9 @@ public class BasicInfo extends JFrame implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		setVisible(false);
-		new Vehicles();
-		BasicInfoModel bif= new BasicInfoModel();
-		bif.setFirstName(firstName.getText());
-		bif.setMiddleName(middleName.getText()); 
-		bif.setLastName(lastName.getText());
-		bif.setSuffix(suffix.getText()); 
-		//String email = mailing.getText();
-		bif.setMaApt(apt.getText());
-		bif.setState((String)state.getSelectedItem()); 
+		
 		try {
-			bif.setAge(Integer.parseInt(mm.getText()));
+			controller.saveBasicInfo((String)state.getSelectedItem(), Integer.parseInt(mm.getText()));
 		} catch (NumberFormatException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -194,7 +188,26 @@ public class BasicInfo extends JFrame implements ActionListener{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+		setVisible(false);
+		new Vehicles(controller);
+//		BasicInfoModel bif= new BasicInfoModel();
+//		bif.setFirstName(firstName.getText());
+//		bif.setMiddleName(middleName.getText()); 
+//		bif.setLastName(lastName.getText());
+//		bif.setSuffix(suffix.getText()); 
+//		//String email = mailing.getText();
+//		bif.setMaApt(apt.getText());
+//		bif.setState((String)state.getSelectedItem()); 
+//		try {
+//			bif.setAge(Integer.parseInt(mm.getText()));
+//		} catch (NumberFormatException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (MyValidationException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//		
 		
 	}
 	
