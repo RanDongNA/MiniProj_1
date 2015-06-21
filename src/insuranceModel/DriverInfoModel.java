@@ -5,9 +5,9 @@ public class DriverInfoModel {
 	private String gender;
 	private String maritalStatus;
 	private String education;
-	private String employmentStatus;
+	private Boolean employmentStatus;
 	private String ssn;
-	private String primaryEesidence;
+	private String primaryResidence;
 	private String usLicenseStatus;
 	private Integer yearsLicensed;
 	// true means there exist a/c/d, false means none
@@ -35,7 +35,7 @@ public class DriverInfoModel {
 	/**
 	 * @return the employmentStatus
 	 */
-	public String getEmploymentStatus() {
+	public Boolean getEmploymentStatus() {
 		return employmentStatus;
 	}
 	/**
@@ -47,8 +47,8 @@ public class DriverInfoModel {
 	/**
 	 * @return the primaryEesidence
 	 */
-	public String getPrimaryEesidence() {
-		return primaryEesidence;
+	public String getPrimaryResidence() {
+		return primaryResidence;
 	}
 	/**
 	 * @return the usLicenseStatus
@@ -74,30 +74,45 @@ public class DriverInfoModel {
 	public Boolean getHasTicketsViolations() {
 		return hasTicketsViolations;
 	}
+	
 	/**
 	 * @param gender the gender to set
 	 */
-	public void setGender(String gender) {
+	public void setGender(String gender) throws MyValidationException {
+		String input=gender.toLowerCase();
+		if(!input.equals("male") || !input.toLowerCase().equals("female")) {
+			throw new MyValidationException("Invalid gender: "+gender);			
+		}
 		this.gender = gender;
 	}
+	
 	/**
 	 * @param maritalStatus the maritalStatus to set
 	 */
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) throws MyValidationException {
+		String input=maritalStatus.toLowerCase();
+		if(!input.equals("single") || !input.equals("married") || !input.equals("divoced"))
+			throw new MyValidationException("Invalid Married Status: "+ maritalStatus);
 		this.maritalStatus = maritalStatus;
 	}
+	
 	/**
 	 * @param education the education to set
 	 */
-	public void setEducation(String education) {
+	public void setEducation(String education) throws MyValidationException {
+		String input=maritalStatus.toLowerCase();
+		if(!input.equals("high school") || !input.equals("bachelor") || !input.equals("master") || !input.equals("divoced"))
+			throw new MyValidationException("Invalid Married Status: "+ maritalStatus);
 		this.education = education;
 	}
+	
 	/**
 	 * @param employmentStatus the employmentStatus to set
 	 */
-	public void setEmploymentStatus(String employmentStatus) {
+	public void setEmploymentStatus(Boolean employmentStatus) {
 		this.employmentStatus = employmentStatus;
 	}
+	
 	/**
 	 * @param ssn the ssn to set
 	 */
@@ -107,8 +122,8 @@ public class DriverInfoModel {
 	/**
 	 * @param primaryEesidence the primaryEesidence to set
 	 */
-	public void setPrimaryEesidence(String primaryEesidence) {
-		this.primaryEesidence = primaryEesidence;
+	public void setPrimaryResidence(String primaryEesidence) {
+		this.primaryResidence = primaryEesidence;
 	}
 	/**
 	 * @param usLicenseStatus the usLicenseStatus to set

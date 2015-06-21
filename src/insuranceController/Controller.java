@@ -3,6 +3,7 @@ package insuranceController;
 import insuranceModel.BasicInfoModel;
 import insuranceModel.DriverInfoModel;
 import insuranceModel.Model;
+import insuranceModel.MyValidationException;
 import insuranceModel.VehicleInfoModel;
 
 public class Controller {
@@ -13,14 +14,14 @@ public class Controller {
 		this.model = new Model();
 	}
 	
-	public void saveBasicInfo(String zip, Integer age) {
+	public void saveBasicInfo(String zip, Integer age) throws MyValidationException{
 		BasicInfoModel bim = this.model.getBasicInfoModel();
 		bim.setMaZip(zip);
 		bim.setAge(age);		
 	}
 	
 	public void saveVehicalInfo(Integer year,String make,String model,String bodyType,
-						String primaryUse,Boolean isLease,Boolean hasPassiveAlarm) {
+						String primaryUse,Boolean isLease,Boolean hasPassiveAlarm)  throws MyValidationException {
 		VehicleInfoModel vim = this.model.getVehicleInfoModel();
 		vim.setYear(year);
 		vim.setMake(make);
@@ -31,9 +32,9 @@ public class Controller {
 		vim.setHasPassiveAlarm(hasPassiveAlarm);		
 	}
 	
-	public void saveDriverInfo(String maritalStatus, String education, String employmentStatus, 
+	public void saveDriverInfo (String maritalStatus, String education, Boolean employmentStatus, 
 						Integer yearsLicensed, Boolean hasAccidentsClaimsDamage, 
-						Boolean hasTicketsViolations) {
+						Boolean hasTicketsViolations) throws MyValidationException  {
 		DriverInfoModel dim = this.model.getDriverInfoModel();
 		dim.setMaritalStatus(maritalStatus);
 		dim.setEducation(education);

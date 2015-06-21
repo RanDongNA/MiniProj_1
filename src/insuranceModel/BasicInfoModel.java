@@ -119,7 +119,9 @@ public class BasicInfoModel {
 	/**
 	 * @param maZip the maZip to set
 	 */
-	public void setMaZip(String maZip) {
+	public void setMaZip(String maZip) throws MyValidationException{
+		if(!maZip.matches("(\\d+)-(\\d+)"))
+			throw new MyValidationException("Invalid Zip Code: "+maZip);
 		this.maZip = maZip;
 	}
 	/**
@@ -131,7 +133,9 @@ public class BasicInfoModel {
 	/**
 	 * @param age the age to set
 	 */
-	public void setAge(Integer age) {
+	public void setAge(Integer age) throws MyValidationException{
+		if(age<=0)
+			throw new MyValidationException("Invalid Age: "+age);
 		this.age = age;
 	}
 	
