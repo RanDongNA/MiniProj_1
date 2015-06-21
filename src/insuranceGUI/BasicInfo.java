@@ -1,5 +1,8 @@
 package insuranceGUI;
 
+import insuranceModel.BasicInfoModel;
+import insuranceModel.MyValidationException;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,10 +22,8 @@ public class BasicInfo extends JFrame implements ActionListener{
 	private JTextField city;
 	private JTextField postCode;
 	private JCheckBox sMailing;
-	private JLabel birth;
+	private JLabel age;
 	private JTextField mm;
-	private JTextField dd;
-	private JTextField yyyy;
 	private JButton button1;
 	private Color color = new Color(170, 202, 255);
 	
@@ -113,21 +114,22 @@ public class BasicInfo extends JFrame implements ActionListener{
 		c.insets = new Insets(30,20,20,20);
 		backGround.add(sMailing, c);
 		
-		birth = new JLabel("Date of Birth");
+		//birth = new JLabel("Date of Birth");
+		age = new JLabel("Age");
 		c.weightx = 0.5;
 		c.gridx = 0;
 		c.gridy = 4;
 		c.gridwidth = 1;
 		c.insets = new Insets(0,35,50,20);
-		backGround.add(birth, c);
+		backGround.add(age, c);
 		
-		mm = new JTextField("mm");
+		mm = new JTextField("age");
 		c.gridx = 1;
 		c.gridy = 4;
 		c.insets = new Insets(0,20,50,80);
 		backGround.add(mm, c);
 		
-		dd = new JTextField("dd");
+		/*dd = new JTextField("dd");
 		c.gridx = 2;
 		c.gridy = 4;
 		c.insets = new Insets(0,0,50,70);
@@ -137,7 +139,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 		c.gridx = 3;
 		c.gridy = 4;
 		c.insets = new Insets(0,00,50,20);
-		backGround.add(yyyy, c);
+		backGround.add(yyyy, c);*/
 		
 		button1 = new JButton("Save and continue");
 		c.gridx = 1;
@@ -159,10 +161,10 @@ public class BasicInfo extends JFrame implements ActionListener{
 		fontSetJT(city);
 		fontSetJT(postCode);
 		fontSetJT(mm);
-		fontSetJT(dd);
-		fontSetJT(yyyy);
+		//fontSetJT(dd);
+		//fontSetJT(yyyy);
 		state.setFont(new Font("Arial", Font.BOLD, 20));
-		birth.setFont(new Font("Arial", Font.BOLD, 20));
+		age.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setHorizontalAlignment(JLabel.CENTER);
 		button1.addActionListener(this);
@@ -175,6 +177,25 @@ public class BasicInfo extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		setVisible(false);
 		new Vehicles();
+		BasicInfoModel bif= new BasicInfoModel();
+		bif.setFirstName(firstName.getText());
+		bif.setMiddleName(middleName.getText()); 
+		bif.setLastName(lastName.getText());
+		bif.setSuffix(suffix.getText()); 
+		//String email = mailing.getText();
+		bif.setMaApt(apt.getText());
+		bif.setState((String)state.getSelectedItem()); 
+		try {
+			bif.setAge(Integer.parseInt(mm.getText()));
+		} catch (NumberFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 	}
 	
 	public void fontSetJT(JTextField jt) {

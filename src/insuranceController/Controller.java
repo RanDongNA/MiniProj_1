@@ -11,7 +11,7 @@ public class Controller {
 	public Model model;
 	
 	Controller() {
-		this.model = new Model();
+		model = new Model();
 	}
 	
 	public void saveBasicInfo(String zip, Integer age) throws MyValidationException{
@@ -22,7 +22,7 @@ public class Controller {
 	
 	public void saveVehicalInfo(Integer year,String make,String model,String bodyType,
 						String primaryUse,Boolean isLease,Boolean hasPassiveAlarm) {
-		VehicleInfoModel vim = this.model.getVehicleInfoModel();
+		VehicleInfoModel vim =  this.model.getVehicleInfoModel();
 		vim.setYear(year);
 		vim.setMake(make);
 		vim.setModel(model);

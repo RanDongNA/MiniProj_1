@@ -1,5 +1,8 @@
 package insuranceGUI;
 
+import insuranceModel.DriverInfoModel;
+import insuranceModel.MyValidationException;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -39,6 +42,9 @@ public class Drivers extends JFrame implements ActionListener{
 	private JRadioButton ticketN;
 	private JButton button1;
 	private Color color = new Color(170, 202, 255);
+	private ButtonGroup bp1;
+	private ButtonGroup bp2;
+	private ButtonGroup bp3;
 	
 	public Drivers(){
 		DriverInfo();
@@ -233,6 +239,50 @@ public class Drivers extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		setVisible(false);
 		new Result();
+		DriverInfoModel dif = new DriverInfoModel();
+		try {
+			dif.setEducation((String)education.getSelectedItem());
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//dif.setEmploymentStatus(employment.getSelectedItem()); Better be Radio Button.
+		try {
+			dif.setGender(gender.getText());
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		dif.setHasAccidentsClaimsDamage(bp2.getSelection().isSelected());
+		dif.setHasTicketsViolations(bp3.getSelection().isSelected());
+		try {
+			dif.setMaritalStatus((String)marital.getSelectedItem());
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			dif.setPrimaryResidence(primaryResidence.getSelectedText());
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			dif.setSsn(ssn.getText());
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		dif.setUsLicenseStatus(license.getText());
+		try {
+			dif.setYearsLicensed(Integer.parseInt(year.getText()));
+		} catch (NumberFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (MyValidationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	public void fontSetJT(JTextField jt) {

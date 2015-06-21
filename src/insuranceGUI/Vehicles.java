@@ -1,5 +1,8 @@
 package insuranceGUI;
 
+import insuranceModel.DriverInfoModel;
+import insuranceModel.VehicleInfoModel;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -31,6 +34,8 @@ public class Vehicles extends JFrame implements ActionListener{
 	private JRadioButton alarmYes;
 	private JRadioButton alarmNo;
 	private JButton button1;
+	private ButtonGroup bp1;
+	private ButtonGroup bp2;
 	private Color color = new Color(170, 202, 255);
 	
 	public Vehicles(){
@@ -106,7 +111,7 @@ public class Vehicles extends JFrame implements ActionListener{
 
 		own = new JRadioButton("Own");
 		lease = new JRadioButton("Lease");
-		ButtonGroup bp1 = new ButtonGroup();
+	    bp1 = new ButtonGroup();
 		bp1.add(own);
 		bp1.add(lease);
 		own.setSelected(true);
@@ -124,7 +129,7 @@ public class Vehicles extends JFrame implements ActionListener{
 		
 		alarmYes = new JRadioButton("Yes");
 		alarmNo = new JRadioButton("No");
-		ButtonGroup bp2 = new ButtonGroup();
+	    bp2 = new ButtonGroup();
 		bp2.add(alarmYes);
 		bp2.add(alarmNo);
 		alarmYes.setSelected(true);
@@ -174,6 +179,14 @@ public class Vehicles extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		setVisible(false);
 		new Drivers();
+		VehicleInfoModel vif = new VehicleInfoModel();
+		vif.setBodyType(bodyType.getText());
+		vif.setHasPassiveAlarm(bp2.getSelection().isSelected());
+		vif.setIsLease(bp1.getSelection().isSelected());
+		vif.setMake(make.getText());
+		vif.setModel(model.getSelectedText());
+		vif.setPrimaryUse(primaryUse.getSelectedText());
+		vif.setYear(Integer.parseInt(year.getText()));
 	}
 	
 	public void fontSetJT(JTextField jt) {
