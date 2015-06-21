@@ -1,0 +1,48 @@
+package insuranceReport;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+class FileDisplay {
+	
+	public void saveFile(Object oj)
+	{
+		try {
+			   FileOutputStream os = new FileOutputStream("C:\\Users/JIA/Documents/GitHub/MiniProj_1/report.txt");
+			   ObjectOutputStream obj = new ObjectOutputStream(os);
+			   obj.writeObject(oj);
+			   //System.out.println(oj);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public void readFile()
+	{
+	  	try {
+			  FileInputStream  is	= new FileInputStream("C:\\Users/JIA/Documents/GitHub/MiniProj_1/report.txt");
+			  ObjectInputStream object = new ObjectInputStream(is);
+			   //System.out.println(object.readObject());
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+
+}

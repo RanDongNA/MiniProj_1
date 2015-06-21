@@ -5,32 +5,41 @@ import insuranceController.Controller;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class Result extends JFrame{
+class Result extends JFrame implements ActionListener{
 	
 	private JPanel backGround;
-	private JLabel text;
+	private JButton display;
 	private Color color = new Color(170, 202, 255);
 	private Controller controller;
 	private JTextArea outputTextArea;
+
 	
 	public Result(Controller controller) {
 		this.controller = controller;
 		backGround = new JPanel(new BorderLayout());
-		text = new JLabel("Insurance Solution for personal automoblie use");
+		display = new JButton("Display Insurance Solution for personal automoblie use");
 		outputTextArea = new JTextArea();
 		
-		text.setFont(new Font("Arial", Font.BOLD, 26));
+		display.setFont(new Font("Arial", Font.BOLD, 26));
 		add(backGround);
 		backGround.setBackground(color);
 		setSize(1000, 800);
 		
-		backGround.add(text, BorderLayout.NORTH);
+		backGround.add(display, BorderLayout.NORTH);
 		backGround.add(outputTextArea);
+		display.addActionListener(this);
 		setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		
 	}
 
 }
