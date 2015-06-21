@@ -1,0 +1,51 @@
+Michigan 		:1000
+Montana			:760 
+Washington,D.C. :750
+Louisiana	 	:750
+Florida		    :740  
+West Virginia	:730
+Connecticut	 	:720
+Rhode Island	:710
+California	    :690
+New Jersey	    :680
+Maryland	    :670
+Mississippi	    :660
+Delaware	    :650
+Georgia	        :640
+Oklahoma	    :630
+Massachusetts	:620
+Texas	        :610
+Alaska	 		:570
+North Dakota	:560
+Wyoming	        :550
+Kentucky	 	:540
+Alabama	 		:530
+Pennsylvania	:520
+Tennessee	 	:510
+Nevada	 		:500
+Colorado	 	:500
+Arkansas	 	:490
+New Mexico	 	:480
+Minnesota	 	:470
+Oregon	 		:460
+South Carolina	:450
+South Dakota	:450
+Kansas	 		:440
+Hawaii	 		:440
+Missouri	 	:448
+Washington	 	:445
+Arizona	 		:443
+Nebraska	 	:440
+Illinois	 	:435
+Utah	 		:430
+Indiana	 		:425
+New York	 	:420
+Virginia		:410
+North Carolina	:405
+Vermont	 		:400
+Wisconsin	 	:380
+New Hampshire	:375
+Iowa	        :360
+Idaho	        :350
+Ohio	        :340
+Maine	        :335

@@ -11,9 +11,11 @@ public class BasicInfoModel {
 	private String maStreet;
 	private String maApt;
 	private String maCity;
+	private String state;
 	private String maZip;
 	private Boolean isPOBox;
 	private Integer age;
+	
 	/**
 	 * @return the firstName
 	 */
@@ -124,6 +126,14 @@ public class BasicInfoModel {
 			throw new MyValidationException("Invalid Zip Code: "+maZip);
 		this.maZip = maZip;
 	}
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
 	/**
 	 * @param isPOBox the isPOBox to set
 	 */

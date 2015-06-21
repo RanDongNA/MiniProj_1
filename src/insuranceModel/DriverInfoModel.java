@@ -8,6 +8,9 @@ public class DriverInfoModel {
 	private Boolean employmentStatus;
 	private String ssn;
 	private String primaryResidence;
+
+	private String usLicenseStatus;  //TODO: to be removed
+
 	private Integer yearsLicensed;
 	// true means there exist a/c/d, false means none
 	private Boolean hasAccidentsClaimsDamage;
@@ -46,7 +49,7 @@ public class DriverInfoModel {
 	/**
 	 * @return the primaryEesidence
 	 */
-	public String getPrimaryResidence() {
+	public String getPrimaryEesidence() {
 		return primaryResidence;
 	}
 
@@ -121,6 +124,12 @@ public class DriverInfoModel {
 	 */
 	public void setPrimaryResidence(String primaryResidence) throws MyValidationException {		
 		this.primaryResidence = primaryResidence;
+	}
+	/**
+	 * @param usLicenseStatus the usLicenseStatus to set
+	 */
+	public void setUsLicenseStatus(String usLicenseStatus) {
+		this.usLicenseStatus = usLicenseStatus;
 	}
 	
 
