@@ -8,7 +8,6 @@ public class DriverInfoModel {
 	private Boolean employmentStatus;
 	private String ssn;
 	private String primaryResidence;
-	private String usLicenseStatus;
 	private Integer yearsLicensed;
 	// true means there exist a/c/d, false means none
 	private Boolean hasAccidentsClaimsDamage;
@@ -50,12 +49,7 @@ public class DriverInfoModel {
 	public String getPrimaryResidence() {
 		return primaryResidence;
 	}
-	/**
-	 * @return the usLicenseStatus
-	 */
-	public String getUsLicenseStatus() {
-		return usLicenseStatus;
-	}
+
 	/**
 	 * @return the yearsLicensed
 	 */
@@ -116,33 +110,36 @@ public class DriverInfoModel {
 	/**
 	 * @param ssn the ssn to set
 	 */
-	public void setSsn(String ssn) {
+	public void setSsn(String ssn) throws MyValidationException{
+		if(!ssn.matches("[0-9]{9}"))
+			throw new MyValidationException("Invalid SSN: "+ssn);
 		this.ssn = ssn;
 	}
+	
 	/**
 	 * @param primaryEesidence the primaryEesidence to set
 	 */
-	public void setPrimaryResidence(String primaryEesidence) {
-		this.primaryResidence = primaryEesidence;
+	public void setPrimaryResidence(String primaryResidence) throws MyValidationException {		
+		this.primaryResidence = primaryResidence;
 	}
-	/**
-	 * @param usLicenseStatus the usLicenseStatus to set
-	 */
-	public void setUsLicenseStatus(String usLicenseStatus) {
-		this.usLicenseStatus = usLicenseStatus;
-	}
+	
+
 	/**
 	 * @param yearsLicensed the yearsLicensed to set
 	 */
-	public void setYearsLicensed(Integer yearsLicensed) {
+	public void setYearsLicensed(Integer yearsLicensed) throws MyValidationException{
+		if(yearsLicensed<0)
+			throw new MyValidationException("Invalid year: "+ yearsLicensed);
 		this.yearsLicensed = yearsLicensed;
 	}
+	
 	/**
 	 * @param hasAccidentsClaimsDamage the hasAccidentsClaimsDamage to set
 	 */
 	public void setHasAccidentsClaimsDamage(Boolean hasAccidentsClaimsDamage) {
 		this.hasAccidentsClaimsDamage = hasAccidentsClaimsDamage;
 	}
+	
 	/**
 	 * @param hasTicketsorCiolations the hasTicketsorCiolations to set
 	 */

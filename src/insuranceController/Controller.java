@@ -21,7 +21,7 @@ public class Controller {
 	}
 	
 	public void saveVehicalInfo(Integer year,String make,String model,String bodyType,
-						String primaryUse,Boolean isLease,Boolean hasPassiveAlarm)  throws MyValidationException {
+						String primaryUse,Boolean isLease,Boolean hasPassiveAlarm) {
 		VehicleInfoModel vim = this.model.getVehicleInfoModel();
 		vim.setYear(year);
 		vim.setMake(make);
