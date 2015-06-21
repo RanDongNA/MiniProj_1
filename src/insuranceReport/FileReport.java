@@ -1,5 +1,7 @@
 package insuranceReport;
 
+import insuranceController.Controller;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,14 +9,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-class FileDisplay {
-	
+public class FileReport {
+
 	public void saveFile(Object oj)
 	{
 		try {
 			   FileOutputStream os = new FileOutputStream("C:\\Users/JIA/Documents/GitHub/MiniProj_1/report.txt");
 			   ObjectOutputStream obj = new ObjectOutputStream(os);
 			   obj.writeObject(oj);
+			   obj.close();
 			   //System.out.println(oj);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -33,7 +36,7 @@ class FileDisplay {
 			  FileInputStream  is	= new FileInputStream("C:\\Users/JIA/Documents/GitHub/MiniProj_1/report.txt");
 			  ObjectInputStream object = new ObjectInputStream(is);
 			   //System.out.println(object.readObject());
-			
+			  object.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,7 +44,7 @@ class FileDisplay {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	
 	}
 	
 

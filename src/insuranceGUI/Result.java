@@ -7,8 +7,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
+import insuranceReport.*;
 
 class Result extends JFrame implements ActionListener{
 	
@@ -17,10 +17,12 @@ class Result extends JFrame implements ActionListener{
 	private Color color = new Color(170, 202, 255);
 	private Controller controller;
 	private JTextArea outputTextArea;
+	private FileReport fileReport;
 
 	
 	public Result(Controller controller) {
 		this.controller = controller;
+		fileReport = new FileReport();
 		backGround = new JPanel(new BorderLayout());
 		display = new JButton("Display Insurance Solution for personal automoblie use");
 		outputTextArea = new JTextArea();
@@ -38,7 +40,8 @@ class Result extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		fileReport.saveFile(controller);
+		outputTextArea.setText(controller.toString());
 		
 	}
 
