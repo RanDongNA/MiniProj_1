@@ -33,7 +33,7 @@ public class FileReport {
 	public void readFile()
 	{
 	  	try {
-			  FileInputStream  is	= new FileInputStream("C:\\Users/JIA/Documents/GitHub/MiniProj_1/report.txt");
+			  FileInputStream  is	= new FileInputStream("report.txt");
 			  ObjectInputStream object = new ObjectInputStream(is);
 			   //System.out.println(object.readObject());
 			  object.close();

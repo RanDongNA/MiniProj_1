@@ -55,7 +55,7 @@ public class RuleEngine {
 	private double ageMultiplier(Model user) {
 		double result = calculateBaseInsurance(user);
 		int age = user.getBasicInfoModel().getAge();
-		if (age < 18) result *= 1.2;
+		if (age < 18 || age >= 60) result *= 1.2;
 		else if (age >= 24) result *= 0.95;
 		else if (age >= 30) result *= 0.9;
 		return result;

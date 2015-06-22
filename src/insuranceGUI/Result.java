@@ -41,12 +41,12 @@ class Result extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		fileReport.saveFile(controller.getModel());
-		outputTextArea.setText(controller.getModel().getBasicInfoModel().toString() +controller.getModel().getDriverInfoModel().toString()
-				+controller.getModel().getVehicleInfoModel().toString());
-//		outputTextArea.setText("\nQuote Price: "+controller.getQuotePrice() + 
-//				"\n----------------------"
-//				+ "\n----------------------"
-//				+ controller.getModel().toString() );
+//		outputTextArea.setText(controller.getModel().getBasicInfoModel().toString() +controller.getModel().getDriverInfoModel().toString()
+//				+controller.getModel().getVehicleInfoModel().toString());
+		outputTextArea.setText("\nQuote Price: "+controller.getQuotePrice() + 
+				"\n----------------------"
+				+ "\n----------------------"
+				+ controller.getModel().toString() );
 		
 	}
 
