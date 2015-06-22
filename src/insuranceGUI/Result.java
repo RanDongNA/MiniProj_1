@@ -40,8 +40,11 @@ class Result extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		fileReport.saveFile(controller);
-		outputTextArea.setText(controller.toString());
+		//fileReport.saveFile(controller);
+		outputTextArea.setText("\nQuote Price: "+controller.getQuotePrice() + 
+				"\n----------------------"
+				+ "\n----------------------"
+				+ controller.getModel().toString() );
 		
 	}
 

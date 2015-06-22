@@ -1,5 +1,7 @@
 package insuranceModel;
 
+import java.lang.reflect.Field;
+
 public class DriverInfoModel {
 	// driver info
 	private String gender;
@@ -16,6 +18,23 @@ public class DriverInfoModel {
 	private Boolean hasAccidentsClaimsDamage;
 	// true means got ticket/violation, false means not
 	private Boolean hasTicketsViolations;
+	
+	public String toString() {
+		Field[] fields = this.getClass().getDeclaredFields();
+		String modelString="\nDriver Info Model:\n--------------------";
+		for(Field f : fields) {
+			modelString+="\n"+f.getName()+": ";
+			try {
+				modelString+=f.get(this);
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			}
+		}
+		return modelString;
+	}
 	/**
 	 * @return the gender
 	 */
@@ -76,8 +95,8 @@ public class DriverInfoModel {
 	 * @param gender the gender to set
 	 */
 	public void setGender(String gender) throws MyValidationException {
-		String input=gender.toLowerCase();
-		if(!input.equals("male") || !input.toLowerCase().equals("female")) {
+		String input=gender.trim().toLowerCase();
+		if(!input.equals("male") && !input.equals("female")) {
 			throw new MyValidationException("Invalid gender: "+gender);			
 		}
 		this.gender = gender;
@@ -87,8 +106,8 @@ public class DriverInfoModel {
 	 * @param maritalStatus the maritalStatus to set
 	 */
 	public void setMaritalStatus(String maritalStatus) throws MyValidationException {
-		String input=maritalStatus.toLowerCase();
-		if(!input.equals("single") || !input.equals("married") || !input.equals("divoced"))
+		String input=maritalStatus.trim().toLowerCase();
+		if(!input.equals("single") && !input.equals("married") && !input.equals("divoced"))
 			throw new MyValidationException("Invalid Married Status: "+ maritalStatus);
 		this.maritalStatus = maritalStatus;
 	}
@@ -97,9 +116,9 @@ public class DriverInfoModel {
 	 * @param education the education to set
 	 */
 	public void setEducation(String education) throws MyValidationException {
-		String input=maritalStatus.toLowerCase();
-		if(!input.equals("high school") || !input.equals("bachelor") || !input.equals("master") || !input.equals("divoced"))
-			throw new MyValidationException("Invalid Married Status: "+ maritalStatus);
+		String input=education.trim().toLowerCase();
+		if(!input.equals("high school") && !input.equals("bachelor") && !input.equals("master") && !input.equals("phd"))
+			throw new MyValidationException("Invalid Education: "+ education);
 		this.education = education;
 	}
 	

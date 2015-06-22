@@ -42,7 +42,7 @@ public class RuleEngine {
 	private int calculateBaseInsurance(Model user) {
 		String state = user.getBasicInfoModel().getState();
 		String make = user.getVehicleInfoModel().getMake().toLowerCase();
-		int result = stateRates.get(state);
+		int result = 100;//stateRates.get(state);
 		if (makeRates.containsKey(make)) result += makeRates.get(make);
 		else throw new IllegalArgumentException("Given make does not exist");
 		return result;

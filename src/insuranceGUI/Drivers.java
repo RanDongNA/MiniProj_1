@@ -71,7 +71,7 @@ public class Drivers extends JFrame implements ActionListener{
 		
 		male = new JRadioButton("Male");
 		female = new JRadioButton("Female");
-		ButtonGroup bp1 = new ButtonGroup();
+		bp1 = new ButtonGroup();
 		bp1.add(male);
 		bp1.add(female);
 		male.setSelected(true);
@@ -88,7 +88,7 @@ public class Drivers extends JFrame implements ActionListener{
 		c.gridy = 1;
 		backGround.add(maritalL, c);
 		
-		String[] maritalList = new String[]{"  Married", "  Single Loser"};
+		String[] maritalList = new String[]{"  Married", "  Single","  Divoced"};
 		marital = new JComboBox<String>(maritalList);
 		c.gridx = 1;
 		c.gridy = 1;
@@ -100,7 +100,7 @@ public class Drivers extends JFrame implements ActionListener{
 		c.gridy = 2;
 		backGround.add(educationL, c);
 		
-		String[] educationList = new String[]{"  Come on, seriously?!", "  High School", "  Bachelor", "  Master", "  PHD"};
+		String[] educationList = new String[]{"  High School", "  Bachelor", "  Master", "  PHD"};
 		education = new JComboBox<String>(educationList);
 		c.gridx = 1;
 		c.gridy = 2;
@@ -111,7 +111,7 @@ public class Drivers extends JFrame implements ActionListener{
 		c.gridy = 3;
 		backGround.add(employmentL, c);
 		
-		String[] employmentList = new String[]{"  Employed", "  Loser"};
+		String[] employmentList = new String[]{"  Employed", "  Unemployed"};
 		employment = new JComboBox<String>(employmentList);
 		c.gridx = 1;
 		c.gridy = 3;
@@ -164,7 +164,7 @@ public class Drivers extends JFrame implements ActionListener{
 		
 		damageY = new JRadioButton("Yes");
 		damageN = new JRadioButton("No");
-		ButtonGroup bp2 = new ButtonGroup();
+		bp2 = new ButtonGroup();
 		bp2.add(damageY);
 		bp2.add(damageN);
 		damageY.setSelected(true);
@@ -183,7 +183,7 @@ public class Drivers extends JFrame implements ActionListener{
 		
 		ticketY = new JRadioButton("Yes");
 		ticketN = new JRadioButton("No");
-		ButtonGroup bp3 = new ButtonGroup();
+		bp3 = new ButtonGroup();
 		bp3.add(ticketY);
 		bp3.add(ticketN);
 		ticketY.setSelected(true);
@@ -240,63 +240,28 @@ public class Drivers extends JFrame implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e){
+	    try {
+			controller.saveDriverInfo(
+					male.isSelected()?"male":"female",
+					(String)marital.getSelectedItem(), 
+					(String)education.getSelectedItem(), 
+					"Employeed".equals((String)employment.getSelectedItem()),
+					ssn.getText(), primaryResidence.getText(), license.getText(),
+					Integer.parseInt(year.getText()), 
+					damageY.isSelected(), 
+					ticketY.isSelected());
+		} catch (NumberFormatException e1) {
+			JOptionPane.showMessageDialog(this,e1.toString());
+			e1.printStackTrace();
+			return;
+		} catch (MyValidationException e1) {
+			JOptionPane.showMessageDialog(this,e1.toString());
+			e1.printStackTrace();
+			return;
+		}
 		setVisible(false);
 		new Result(controller);
 		
-	    try {
-			controller.saveDriverInfo((String)marital.getSelectedItem(), (String)education.getSelectedItem(), true, Integer.parseInt(year.getText()), bp2.getSelection().isSelected(), bp3.getSelection().isSelected());
-		} catch (NumberFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-//		DriverInfoModel dif = new DriverInfoModel();
-//		try {
-//			dif.setEducation((String)education.getSelectedItem());
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		//dif.setEmploymentStatus(employment.getSelectedItem()); Better be Radio Button.
-//		try {
-//			dif.setGender(gender.getText());
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		dif.setHasAccidentsClaimsDamage(bp2.getSelection().isSelected());
-//		dif.setHasTicketsViolations(bp3.getSelection().isSelected());
-//		try {
-//			dif.setMaritalStatus((String)marital.getSelectedItem());
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		try {
-//			dif.setPrimaryResidence(primaryResidence.getSelectedText());
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		try {
-//			dif.setSsn(ssn.getText());
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		dif.setUsLicenseStatus(license.getText());
-//		try {
-//			dif.setYearsLicensed(Integer.parseInt(year.getText()));
-//		} catch (NumberFormatException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
 	}
 	
 	public void fontSetJT(JTextField jt) {

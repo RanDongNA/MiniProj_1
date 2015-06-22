@@ -16,7 +16,11 @@ public class Model {
 		this.vehicleInfoModel=vehicleInfoModel;
 		this.driverInfoModel=driverInfoModel;
 	}
-
+	
+	public String toString() {
+		return ""+basicInfoModel+"\n"+vehicleInfoModel+"\n"+driverInfoModel;
+		
+	}
 	/**
 	 * @return the basicInfoModel
 	 */

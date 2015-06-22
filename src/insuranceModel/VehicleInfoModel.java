@@ -1,5 +1,7 @@
 package insuranceModel;
 
+import java.lang.reflect.Field;
+
 public class VehicleInfoModel {
 	// vehicle info
 	private Integer year;
@@ -10,6 +12,23 @@ public class VehicleInfoModel {
 	// true means lease, false means own
 	private Boolean isLease;
 	private Boolean hasPassiveAlarm;
+	
+	public String toString() {
+		Field[] fields = this.getClass().getDeclaredFields();
+		String modelString="\nVehicle Info Model:\n--------------------";
+		for(Field f : fields) {
+			modelString+="\n"+f.getName()+": ";
+			try {
+				modelString+=f.get(this);
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			}
+		}
+		return modelString;
+	}
 	/**
 	 * @return the year
 	 */

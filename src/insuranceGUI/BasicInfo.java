@@ -180,35 +180,28 @@ public class BasicInfo extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		try {
-			controller.saveBasicInfo((String)state.getSelectedItem(), Integer.parseInt(mm.getText()));
+			controller.saveBasicInfo(
+					// fn, mn, ln, suf
+					firstName.getText(),middleName.getText(),lastName.getText(),suffix.getText(),
+					// mailing-street, apt
+					mailing.getText(),apt.getText(),
+					// mailing-state, city, zip
+					(String)state.getSelectedItem(), city.getText(), postCode.getText(),
+					// mailing-isPOBox
+					sMailing.isSelected(),
+					// age
+					Integer.parseInt(mm.getText()));
 		} catch (NumberFormatException e1) {
-			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(this,e1.toString());
 			e1.printStackTrace();
+			return;
 		} catch (MyValidationException e1) {
-			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(this,e1.toString());
 			e1.printStackTrace();
+			return;
 		}
 		setVisible(false);
 		new Vehicles(controller);
-//		BasicInfoModel bif= new BasicInfoModel();
-//		bif.setFirstName(firstName.getText());
-//		bif.setMiddleName(middleName.getText()); 
-//		bif.setLastName(lastName.getText());
-//		bif.setSuffix(suffix.getText()); 
-//		//String email = mailing.getText();
-//		bif.setMaApt(apt.getText());
-//		bif.setState((String)state.getSelectedItem()); 
-//		try {
-//			bif.setAge(Integer.parseInt(mm.getText()));
-//		} catch (NumberFormatException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		} catch (MyValidationException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		
-		
 	}
 	
 	public void fontSetJT(JTextField jt) {

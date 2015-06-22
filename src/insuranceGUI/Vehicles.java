@@ -180,18 +180,22 @@ public class Vehicles extends JFrame implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		try {
+			controller.saveVehicalInfo(
+				Integer.parseInt(year.getText()), 
+				make.getText(), 
+				model.getText(), 
+				bodyType.getText(),
+				primaryUse.getText(),
+				lease.isSelected(), 
+				alarmYes.isSelected());
+		} catch (NumberFormatException e1) {
+			JOptionPane.showMessageDialog(this,e1.toString());
+			e1.printStackTrace();
+			return;
+		}
 		setVisible(false);
 		new Drivers(controller);
-		controller.saveVehicalInfo(Integer.parseInt(year.getText()), make.getText(), model.getSelectedText(), bodyType.getText(),primaryUse.getSelectedText(),bp1.getSelection().isSelected(), bp2.getSelection().isSelected());
-		
-//		VehicleInfoModel vif = new VehicleInfoModel();
-//		vif.setBodyType();
-//		vif.setHasPassiveAlarm();
-//		vif.setIsLease();
-//		vif.setMake();
-//		vif.setModel();
-//		vif.setPrimaryUse();
-//		vif.setYear();
 	}
 	
 	public void fontSetJT(JTextField jt) {

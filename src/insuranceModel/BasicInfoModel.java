@@ -1,5 +1,6 @@
 package insuranceModel;
 
+import java.lang.reflect.Field;
 import java.util.Date;
 
 public class BasicInfoModel {
@@ -16,6 +17,23 @@ public class BasicInfoModel {
 	private Boolean isPOBox;
 	private Integer age;
 	
+	
+	public String toString() {
+		Field[] fields = this.getClass().getDeclaredFields();
+		String modelString="\nDriver Info Model:\n--------------------";
+		for(Field f : fields) {
+			modelString+="\n"+f.getName()+": ";
+			try {
+				modelString+=f.get(this);
+			} catch (IllegalArgumentException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (NullPointerException e) {
+				e.printStackTrace();
+			}
+		}
+		return modelString;
+	}
 	/**
 	 * @return the firstName
 	 */
@@ -122,7 +140,7 @@ public class BasicInfoModel {
 	 * @param maZip the maZip to set
 	 */
 	public void setMaZip(String maZip) throws MyValidationException{
-		if(!maZip.matches("(\\d+)-(\\d+)"))
+		if(!maZip.matches("(\\d+)(-(\\d+))?"))
 			throw new MyValidationException("Invalid Zip Code: "+maZip);
 		this.maZip = maZip;
 	}
