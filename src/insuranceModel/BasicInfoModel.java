@@ -140,7 +140,7 @@ public class BasicInfoModel {
 	 * @param maZip the maZip to set
 	 */
 	public void setMaZip(String maZip) throws MyValidationException{
-		if(!maZip.matches("(\\d+)(-(\\d+))?"))
+		if(!maZip.matches("^\\d{5}(?:[-\\s]\\d{4})?$"))
 			throw new MyValidationException("Invalid Zip Code: "+maZip);
 		this.maZip = maZip;
 	}
