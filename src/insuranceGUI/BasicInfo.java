@@ -28,6 +28,8 @@ public class BasicInfo extends JFrame implements ActionListener{
 	private JButton button1;
 	private Color color = new Color(170, 202, 255);
 	private Controller controller;
+//	private JTextField dd;
+//	private JTextField yyyy;
 	
 	public BasicInfo() {
 		basic();
@@ -42,7 +44,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 		
 		firstName = new JTextField("First Name");
 		c.anchor = GridBagConstraints.FIRST_LINE_START;
-		c.weightx = 0.45;
+		c.weightx = 1.1;
 		c.weighty = 0.5;
 		c.insets = new Insets(40,20,0,0); 
 		c.ipadx = 400;
@@ -54,14 +56,14 @@ public class BasicInfo extends JFrame implements ActionListener{
 		middleName = new JTextField("Middle Name");
 		c.insets = new Insets(40,20,0,20); 
 		c.weightx = 0.6;
-		c.ipadx = 100;
+		c.ipadx = 500;
 		c.gridx = 1;
 		c.gridy = 0;
 		backGround.add(middleName, c);
 		
 		lastName = new JTextField("Last Name");
 		c.insets = new Insets(40,0,0,20); 
-		c.weightx = 0.45;
+		c.weightx = 0.4;
 		c.ipadx = 400;
 		c.gridx = 2;
 		c.gridy = 0;
@@ -69,7 +71,8 @@ public class BasicInfo extends JFrame implements ActionListener{
 		
 		suffix = new JTextField("Suffix");
 
-		c.insets = new Insets(40,0,0,20); 
+		c.insets = new Insets(40,0,0,20);
+		c.weightx = 1;
 		c.gridx = 3;
 		c.gridy = 0;
 		backGround.add(suffix, c);
@@ -122,7 +125,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 		c.weightx = 0.5;
 		c.gridx = 0;
 		c.gridy = 4;
-		c.gridwidth = 1;
+		c.gridwidth = 2;
 		c.insets = new Insets(0,35,50,20);
 		backGround.add(age, c);
 		
@@ -132,17 +135,17 @@ public class BasicInfo extends JFrame implements ActionListener{
 		c.insets = new Insets(0,20,50,80);
 		backGround.add(mm, c);
 		
-		/*dd = new JTextField("dd");
-		c.gridx = 2;
-		c.gridy = 4;
-		c.insets = new Insets(0,0,50,70);
-		backGround.add(dd, c);
-		
-		yyyy = new JTextField("yyyy");
-		c.gridx = 3;
-		c.gridy = 4;
-		c.insets = new Insets(0,00,50,20);
-		backGround.add(yyyy, c);*/
+//		dd = new JTextField("dd");
+//		c.gridx = 2;
+//		c.gridy = 4;
+//		c.insets = new Insets(0,0,50,70);
+//		backGround.add(dd, c);
+//		
+//		yyyy = new JTextField("yyyy");
+//		c.gridx = 3;
+//		c.gridy = 4;
+//		c.insets = new Insets(0,00,50,20);
+//		backGround.add(yyyy, c);
 		
 		button1 = new JButton("Save and continue");
 		c.gridx = 1;
@@ -164,8 +167,8 @@ public class BasicInfo extends JFrame implements ActionListener{
 		fontSetJT(city);
 		fontSetJT(postCode);
 		fontSetJT(mm);
-		//fontSetJT(dd);
-		//fontSetJT(yyyy);
+//		fontSetJT(dd);
+//		fontSetJT(yyyy);
 		state.setFont(new Font("Arial", Font.BOLD, 20));
 		age.setFont(new Font("Arial", Font.BOLD, 20));
 		button1.setFont(new Font("Arial", Font.BOLD, 20));
