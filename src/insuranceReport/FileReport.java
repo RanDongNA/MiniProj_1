@@ -14,7 +14,7 @@ public class FileReport {
 	public void saveFile(Object oj)
 	{
 		try {
-			   FileOutputStream os = new FileOutputStream("C:\\Users/JIA/Documents/GitHub/MiniProj_1/report.txt");
+			   FileOutputStream os = new FileOutputStream("report.txt");
 			   ObjectOutputStream obj = new ObjectOutputStream(os);
 			   obj.writeObject(oj);
 			   obj.close();

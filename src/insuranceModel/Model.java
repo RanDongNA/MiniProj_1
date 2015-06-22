@@ -1,6 +1,8 @@
 package insuranceModel;
 
-public class Model {
+import java.io.Serializable;
+
+public class Model implements Serializable{
 	private BasicInfoModel basicInfoModel;
 	private VehicleInfoModel vehicleInfoModel;
 	private DriverInfoModel driverInfoModel;
