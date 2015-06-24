@@ -19,7 +19,7 @@ public class Vehicles extends JFrame implements ActionListener{
 
 	private JPanel backGround;
 	private JTextField year;
-	private JTextField make;
+	private JComboBox<String> make;
 	private JTextField model;
 	private JTextField bodyType;
 	private JTextField primaryUse;
@@ -72,7 +72,8 @@ public class Vehicles extends JFrame implements ActionListener{
 		c.gridy = 1;
 		backGround.add(makeL, c);
 		
-		make = new JTextField();
+		String[] makeList = new String[]{"  acura", "  audi","  bmw", "  buick", "  cadillac", "  chevrolet", "  chrysler", "  dodge", "  fiat", "  ford",  "  gmc", "  honda", "  hyundai", "  infiniti", "  jaguar", "  jeep", "  kia", "  land rover", "  lexus", "  lincoln", "  maserati", "  mazda", "  mercedes", "  mitsubishi", "  nissan", "  porsche", "  subaru", "  toyota", "  volkswagen", "  volvo"};
+		make = new JComboBox<String>(makeList);
 		c.gridx = 1;
 		c.gridy = 1;
 		backGround.add(make, c);
@@ -150,7 +151,6 @@ public class Vehicles extends JFrame implements ActionListener{
 		backGround.add(button1, c);
 		
 		fontSetJT(year);
-		fontSetJT(make);
 		fontSetJT(model);
 		fontSetJT(bodyType);
 		fontSetJT(primaryUse);
@@ -162,6 +162,7 @@ public class Vehicles extends JFrame implements ActionListener{
 		fontSetJL(ownOrLease);
 		fontSetJL(alarm);
 		
+		make.setFont(new Font("Arial", Font.BOLD, 20));
 		own.setBackground(color);
 		own.setFont(new Font("Arial", Font.BOLD, 20));
 		lease.setBackground(color);
@@ -183,7 +184,7 @@ public class Vehicles extends JFrame implements ActionListener{
 		try {
 			controller.saveVehicalInfo(
 				Integer.parseInt(year.getText()), 
-				make.getText(), 
+				(String)make.getSelectedItem(), 
 				model.getText(), 
 				bodyType.getText(),
 				primaryUse.getText(),
