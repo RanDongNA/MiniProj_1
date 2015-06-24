@@ -22,7 +22,7 @@ public class Vehicles extends JFrame implements ActionListener{
 	private JComboBox<String> make;
 	private JTextField model;
 	private JTextField bodyType;
-	private JTextField primaryUse;
+	private JComboBox<String> primaryUse;
 	private JLabel yearL;
 	private JLabel makeL;
 	private JLabel modelL;
@@ -103,7 +103,8 @@ public class Vehicles extends JFrame implements ActionListener{
 		c.gridy = 4;
 		backGround.add(primaryUseL, c);
 		
-		primaryUse = new JTextField();
+		String[] useList = new String[]{"personal", "business"};
+		primaryUse = new JComboBox<String>(useList);
 		c.gridx = 1;
 		c.gridy = 4;
 		backGround.add(primaryUse, c);
@@ -153,7 +154,6 @@ public class Vehicles extends JFrame implements ActionListener{
 		fontSetJT(year);
 		fontSetJT(model);
 		fontSetJT(bodyType);
-		fontSetJT(primaryUse);
 		fontSetJL(yearL);
 		fontSetJL(makeL);
 		fontSetJL(modelL);
@@ -162,6 +162,7 @@ public class Vehicles extends JFrame implements ActionListener{
 		fontSetJL(ownOrLease);
 		fontSetJL(alarm);
 		
+		primaryUse.setFont(new Font("Arial", Font.BOLD, 20));
 		make.setFont(new Font("Arial", Font.BOLD, 20));
 		own.setBackground(color);
 		own.setFont(new Font("Arial", Font.BOLD, 20));
@@ -187,12 +188,12 @@ public class Vehicles extends JFrame implements ActionListener{
 				(String)make.getSelectedItem(), 
 				model.getText(), 
 				bodyType.getText(),
-				primaryUse.getText(),
+				(String)primaryUse.getSelectedItem(),
 				lease.isSelected(), 
 				alarmYes.isSelected());
 		} catch (NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,e1.toString());
-			e1.printStackTrace();
+			//e1.printStackTrace();
 			return;
 		}
 		setVisible(false);

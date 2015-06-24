@@ -1,8 +1,9 @@
 package insuranceModel;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 
-public class VehicleInfoModel {
+public class VehicleInfoModel implements Serializable{
 	// vehicle info
 	private Integer year;
 	private String make;

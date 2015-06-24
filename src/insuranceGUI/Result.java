@@ -34,6 +34,7 @@ class Result extends JFrame implements ActionListener{
 		
 		backGround.add(display, BorderLayout.NORTH);
 		backGround.add(outputTextArea);
+		outputTextArea.setFont(new Font("Arial", Font.BOLD, 20));
 		display.addActionListener(this);
 		setVisible(true);
 	}

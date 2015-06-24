@@ -1,9 +1,10 @@
 package insuranceModel;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.Date;
 
-public class BasicInfoModel {
+public class BasicInfoModel implements Serializable{
 	private String firstName;
 	private String middleName;
 	private String lastName;

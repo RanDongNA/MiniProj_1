@@ -1,8 +1,9 @@
 package insuranceModel;
 
+import java.io.Serializable;
 import java.lang.reflect.Field;
 
-public class DriverInfoModel {
+public class DriverInfoModel implements Serializable{
 	// driver info
 	private String gender;
 	private String maritalStatus;

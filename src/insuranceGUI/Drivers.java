@@ -252,11 +252,11 @@ public class Drivers extends JFrame implements ActionListener{
 					ticketY.isSelected());
 		} catch (NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,e1.toString());
-			e1.printStackTrace();
+			//e1.printStackTrace();
 			return;
 		} catch (MyValidationException e1) {
 			JOptionPane.showMessageDialog(this,e1.toString());
-			e1.printStackTrace();
+			//e1.printStackTrace();
 			return;
 		}
 		setVisible(false);

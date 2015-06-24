@@ -31,7 +31,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 //	private JTextField dd;
 //	private JTextField yyyy;
 	
-	public BasicInfo() {
+	public BasicInfo(){
 		basic();
 	    controller = new Controller();
 	}
@@ -247,7 +247,7 @@ public class BasicInfo extends JFrame implements ActionListener{
 					Integer.parseInt(mm.getText()));
 		} catch (NumberFormatException e1) {
 			JOptionPane.showMessageDialog(this,e1.toString());
-			e1.printStackTrace();
+			//e1.printStackTrace();
 			return;
 		} catch (MyValidationException e1) {
 			JOptionPane.showMessageDialog(this,e1.toString());
